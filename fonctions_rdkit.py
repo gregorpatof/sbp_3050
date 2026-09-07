@@ -30,7 +30,7 @@ def get_logp(smiles):
 def get_n_hbond_donors(smiles):
     """ Calcul du nombre de donneurs de ponts H à partir de la représentation SMILES"""
     mol = Chem.MolFromSmiles(smiles)
-    n_hbd = mol.NumHDonors(mol)
+    n_hbd = Descriptors.NumHDonors(mol)
     return n_hbd
 
 
