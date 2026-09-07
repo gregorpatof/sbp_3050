@@ -1,0 +1,11 @@
+nom,SMILES
+cafeine,CN1C=NC2=C1C(=O)N(C)C(=O)N2C
+aspierine,CC(=O)Oc1ccccc1C(=O)O
+ibuprofene,CC(C)Cc1ccc(cc1)C(C)C(=O)O
+metformine,CN(C)C(=N)NC(=N)N
+atenolol,CC(C)NCC(O)COc1ccc(CC(N)=O)cc1
+atorvastatine,CC(C)c1c(C(=O)Nc2ccccc2)c(-c2ccccc2)c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(=O)O
+diazepam,CN1C(=O)CN=C(c2ccccc2)c2cc(Cl)ccc21
+fluoxetine,CNCCC(Oc1ccc(cc1)C(F)(F)F)c1ccccc1
+morphine,CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5
+donepezil,COc1cc2CC(CC3CCN(Cc4ccccc4)CC3)C(=O)c2cc1OC
