@@ -1,5 +1,5 @@
 from rdkit import Chem, DataStructs
-from rdkit.Chem import Descriptors, rdFingerprintGenerator, PandasTools
+from rdkit.Chem import Descriptors, rdFingerprintGenerator
 import pickle
 
 
@@ -110,17 +110,3 @@ def find_closest(query_smiles, pickled_data_path):
     closest_name = data['names'][closest_index]
     closest_smiles = data['smiles'][closest_index]
     return [max_tc, closest_name, closest_smiles]
-
-
-def tableau_molecules(df, colonnes_smiles=('smiles',), largeur=400, hauteur=3000):
-    """ Affiche un tableau pandas dont les colonnes de SMILES sont remplacées par les
-        structures dessinées. Retourne un nouveau DataFrame — le tableau s'affiche si
-        c'est la dernière ligne de la cellule Colab.
-    """
-    PandasTools.molSize = (largeur, hauteur)
-    PandasTools.RenderImagesInAllDataFrames(images=True)
-    tableau = df.copy()
-    for colonne in colonnes_smiles:
-        PandasTools.AddMoleculeColumnToFrame(tableau, colonne, f'structure ({colonne})')
-        tableau = tableau.drop(columns=[colonne])
-    return tableau
