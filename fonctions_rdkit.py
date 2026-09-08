@@ -85,28 +85,3 @@ def build_fingerprints(smi_file, output_file):
                        'smiles': smiles_list}
     with open(output_file, 'wb') as f:
         pickle.dump(data_dictionary, f)
-
-
-def find_closest(query_smiles, pickled_data_path):
-    """ Trouve la molécule la plus proche du query_smiles dans un ensemble de molécules aux empreintes moléculaires
-        précalculées, et retour le coefficient de Tanimoto (Tc), le nom et la structure de cette molécule.
-    """
-    with open(pickled_data_path, 'rb') as f:
-        data = pickle.load(f)
-    mol = Chem.MolFromSmiles(query_smiles)
-    query_fp = fingerprint_generator.GetFingerprint(mol)
-
-    # Calucl du Tc entre la molécule "query" et chaque molécule de la base de données
-    tcs_list = DataStructs.BulkTanimotoSimilarity(query_fp, data['fingerprints'])
-
-    max_tc = 0 # initialisation à 0
-    closest_index = None
-
-    for i, tc in enumerate(tcs_list): # i prendra la valeur de chaque index, tc prendra chaque valeur de la liste
-        if tc > max_tc:
-            max_tc = tc
-            closest_index = i
-
-    closest_name = data['names'][closest_index]
-    closest_smiles = data['smiles'][closest_index]
-    return [max_tc, closest_name, closest_smiles]
